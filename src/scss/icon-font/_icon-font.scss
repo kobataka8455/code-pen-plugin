@@ -1,0 +1,27 @@
+@mixin font-face($iconPath: '../icon-font/') {
+  @font-face {
+    font-family: 'my-icon';
+    font-weight: normal;
+    font-style: normal;
+    src: url('#{$iconPath}my-icon.eot');
+    src: url('#{$iconPath}my-icon.eot#iefix') format('embedded-opentype'), url('#{$iconPath}my-icon.woff2') format('woff2'), url('#{$iconPath}my-icon.woff') format('woff'), url('#{$iconPath}my-icon.ttf') format('truetype');
+  }
+
+  [class*='my-icon--'],
+  [class^='my-icon'] {
+    font-family: 'my-icon';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+  }
+}
+
+@mixin my-icon--check($add: 'none') {
+  @if $add == 'none' {
+    content: '\f000';
+  } @else {
+    &::#{$add} {
+      content: '\f000';
+    }
+  }
+}
